@@ -22,10 +22,12 @@ router.get('/', (ctx) => {
   ctx.body = "Hello from POST /api"
 })
 .put('/api/:id', (ctx) => {
+  const { id } = ctx.params
   ctx.body = "Hello from PUT /api with :id " + id
 })
 .del('/api/:id', (ctx) => {
-  ctx.body = "Hello from DEL /api with :id " + id
+  const { id } = ctx.params
+  ctx.body = "Hello from DELETE /api with :id " + id
 })
 
 app
