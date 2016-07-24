@@ -1,7 +1,7 @@
 {
-  "name": "koa2-boilerplate",
+  "name": "koa2-init",
   "version": "1.0.0",
-  "description": "Minimal koa v2 boilerplate.",
+  "description": "Full koa v2 boilerplate.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
@@ -25,7 +25,9 @@
   "homepage": "https://github.com/geekplux/koa2-boilerplate#readme",
   "dependencies": {
     "koa": "^2.0.0-alpha.3",
-    "koa-router": "^7.0.1"
+    "koa-convert": "^1.2.0",
+    "koa-router": "^7.0.1",
+    "koa-static": "^2.0.0"
   },
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.8.0",

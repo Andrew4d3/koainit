@@ -1,16 +1,17 @@
 import Koa from 'koa'
 import koa_router from 'koa-router'
+import staticServe from 'koa-static'
+import convert from 'koa-convert'
 const app = new Koa()
 const router = koa_router()
 
-// response
-app.use(async (ctx, next) => {
-  next()
-})
+const _use = app.use
+app.use = x => _use.call(app, convert(x))
 
-router.get('/', (ctx) => {
-  ctx.body = "Hello from GET /"
-})
+// response
+app.use(staticServe('./public'))
+
+router
 .get('/api', (ctx) => {
   ctx.body = "Hello from GET /api"
 })
