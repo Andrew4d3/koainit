@@ -6,13 +6,6 @@ const request = supertest.agent(app.listen())
 
 describe('Test Router', function () {
 
-  it('should return 200 OK with the GET method at /', function (done) {
-    request
-      .get('/')
-      .expect(200)
-      .expect('Hello from GET /', done)
-  })
-
   it('should return 200 OK with the GET method at /api', function (done) {
     request
       .get('/api')

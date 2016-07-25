@@ -1,17 +1,17 @@
 [x] Router
 [x] Unit test router
 [X] Static files
-[] Unit test static files
+[x] Unit test static files
 [] Body Parser
 [] Template engine
-[] Run modes
+[x] Run modes
 [] Error middleware (Learn about middlewares here)
 [] Token
 [] Cookie Session
-[] Logger
 [] Cache
 [] Compress
 [] Module router
+[] Logger
 [] Passport Auth (Learn about Passport here)
 [] Multiple ORM
 [] Config loader
