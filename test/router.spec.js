@@ -1,6 +1,7 @@
 import app from '../app'
 import supertest from 'supertest'
 import should from 'should'
+import { expect } from 'chai'
 
 const request = supertest.agent(app.listen())
 
@@ -45,5 +46,27 @@ describe('Test Router', function () {
       .del('/api/123')
       .expect(200)
       .expect('Hello from DELETE /api with :id 123', done)
+  })
+
+  it('should echo a request body', function (done) {
+    request
+      .post('/echo/request')
+      .send({ foo: 12345 })
+      .expect(200)
+      .then((res) => {
+        expect(res.body.echo).to.exist
+        expect(res.body.echo.foo).to.equal(12345)
+        done()
+      })
+  })
+
+  it('should display a correct generated template', function (done) {
+    request
+      .get('/view/welcome')
+      .expect(200)
+      .then((res) => {
+        expect(res.text).to.equal('<h1>Welcome Koa2 from an EJS template</h1>\r\n')
+        done()
+      })
   })
 })

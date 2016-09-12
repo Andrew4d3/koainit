@@ -2,17 +2,17 @@
 [x] Unit test router
 [X] Static files
 [x] Unit test static files
-[] Body Parser
-[] Template engine
+[x] Body Parser
 [x] Run modes
-[] Error middleware (Learn about middlewares here)
+[x] Template rendering
+[x] Module router
+[] Include Boom (error middleware)
+[] Include sourceMaps (not working with undefined)
+
+2nd Phase
 [] Token
 [] Cookie Session
-[] Cache
-[] Compress
-[] Module router
 [] Logger
 [] Passport Auth (Learn about Passport here)
-[] Multiple ORM
 [] Config loader
 [] linter
