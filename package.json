@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/geekplux/koa2-boilerplate#readme",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "boom": "^4.1.0",
     "co-views": "^2.1.0",
     "ejs": "^2.5.1",
     "glob": "^7.0.6",
@@ -37,8 +42,6 @@
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.8.0",
     "babel-plugin-transform-async-to-generator": "^6.8.0",
-    "babel-preset-es2015-node5": "^1.1.2",
-    "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",

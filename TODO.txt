@@ -6,8 +6,8 @@
 [x] Run modes
 [x] Template rendering
 [x] Module router
-[] Include Boom (error middleware)
-[] Include sourceMaps (not working with undefined)
+[x] Include Boom (error middleware)
+[X] Include sourceMaps (not working with undefined)
 
 2nd Phase
 [] Token

@@ -34,7 +34,7 @@ export default function loader(){
   console.log("Loading routes...")
   const files = glob.sync(__dirname + '/*/index.js', {})
   if(!files.length){
-    console.log("There is not routes loaded. Please add your route files in /routes folder")
+    console.log("There are not routes loaded. Please add your routes files in /routes folder")
     return router
   }
 

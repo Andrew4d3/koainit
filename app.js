@@ -4,6 +4,7 @@ import convert from 'koa-convert'
 import bodyParser from 'koa-bodyparser'
 import views from 'koa-views'
 import loadRoutes from './routes'
+import errorMiddleware from './middleware/error'
 const app = new Koa()
 const router = loadRoutes()
 const _use = app.use
@@ -14,6 +15,8 @@ app.use(bodyParser())
 app.use(views(`${__dirname}/views`, {
   map: { ejs: 'ejs' }
 } ))
+
+app.use(errorMiddleware())
 
 app
   .use(router.routes())

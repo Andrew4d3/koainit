@@ -1,3 +1,5 @@
+import Boom from 'boom'
+
 const prefix = '/'
 const routes = [
   {
@@ -50,6 +52,21 @@ const routes = [
     method: 'get',
     controller: async (ctx) => {
       await ctx.render('welcome.ejs', { name: 'Koa2' })
+    }
+  },
+  {
+    path: '/throw/error',
+    method: 'get',
+    controller: async (ctx) => {
+      throw Boom.unauthorized('You are not supposed to be here!');
+    }
+  },
+  {
+    path: '/throw/error2',
+    method: 'get',
+    controller: async (ctx) => {
+      // Default Koa2 error throwing
+      ctx.throw(401, "Hey")
     }
   }
 ]
