@@ -3,9 +3,9 @@ This is a Koa2 boilerplate I decided to design to have a better understanding of
 
 ### Requirements
 Be sure to have the following elements installed:
--Node v4.6.0 or greater.
--Nodemon.
--Mocha for unit testing.
+- Node v4.6.0 or greater.
+- Nodemon.
+- Mocha for unit testing.
 
 ### How to use it
 1. Download the last release by going to the **releases** tab.
