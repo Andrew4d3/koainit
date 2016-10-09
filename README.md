@@ -11,12 +11,17 @@ Be sure to have the following elements installed:
 1. Download the last release by going to the **releases** tab.
 2. Unzip the release zip file in your directory of preference.
 3. Run:
-sudo npm install
-(Don't write sudo if you are on Windows or in sudo mode)
+```sh
+$ sudo npm install
+```
 4. Start the project by running:
-npm start
+```sh
+$ npm start
+```
 or
-nodemon
+```sh
+$ nodemon
+```
 5. Start coding and have fun!
 
 ### What includes?
