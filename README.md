@@ -8,7 +8,7 @@ Be sure to have the following elements installed:
 - Mocha for unit testing.
 
 ### How to use it
-- Download the last release by going to the **releases** tab.
+- Download the last release [here](https://github.com/Andrew4d3/koainit/archive/1.0.zip).
 - Unzip the release zip file in your directory of preference.
 - Run:
 ```sh
