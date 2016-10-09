@@ -1,8 +1,8 @@
 # My Koa2 Starter Kit
-This is a Koa2 boilerplate I decided to design to have a better understanding of Koa2. It includes some useful tool, librares and midlewares that can make easy the development of any Koa project. Any suggestion or feedback is welcome.
+This is a boilerplate I decided to design to have a better understanding of Koa2. It includes some useful tool, librares and midlewares that can ease the development of any Koa project. Any suggestion or feedback is welcome.
 
 ### Requirements
-Be sure to have the following elements installed:
+Be sure to have the following items installed:
 - Node v4.6.0 or greater.
 - Nodemon.
 - Mocha for unit testing.
