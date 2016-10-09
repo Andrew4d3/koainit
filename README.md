@@ -8,13 +8,14 @@ Be sure to have the following elements installed:
 - Mocha for unit testing.
 
 ### How to use it
-1. Download the last release by going to the **releases** tab.
-2. Unzip the release zip file in your directory of preference.
-3. Run:
+- Download the last release by going to the **releases** tab.
+- Unzip the release zip file in your directory of preference.
+- Run:
 ```sh
 $ sudo npm install
 ```
-4. Start the project by running:
+(Not need to type sudo if you are on windows or sudo mode)
+- Start the project by running:
 ```sh
 $ npm start
 ```
@@ -22,7 +23,7 @@ or
 ```sh
 $ nodemon
 ```
-5. Start coding and have fun!
+- Start coding and have fun!
 
 ### What includes?
 - [Boom](https://github.com/hapijs/boom)
