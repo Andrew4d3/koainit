@@ -10,9 +10,8 @@
 [X] Include sourceMaps (not working with undefined)
 
 2nd Phase
+[] Remove babel
 [] Token
-[] Cookie Session
 [] Logger
-[] Passport Auth (Learn about Passport here)
 [] Config loader
 [] linter

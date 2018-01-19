@@ -1,11 +1,11 @@
 {
   "name": "koa2-init",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Full koa v2 boilerplate.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
-    "start": "nodemon"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "babel",
     "es2015"
   ],
-  "author": "GeekPlux",
+  "author": "andrew4d3",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/geekplux/koa2-boilerplate/issues"

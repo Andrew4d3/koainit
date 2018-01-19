@@ -1,5 +1,5 @@
-import koa_router from 'koa-router'
-import glob from 'glob'
+const koa_router = require('koa-router')
+const glob = require('glob')
 const router = koa_router()
 
 const mainPrefix = "" // Empty string for '/'. Suggestion: Load this from config file
@@ -30,7 +30,7 @@ function validateRoute(route){
   return routeValid
 }
 
-export default function loader(){
+module.exports = function loader(){
   console.log("Loading routes...")
   const files = glob.sync(__dirname + '/*/index.js', {})
   if(!files.length){
@@ -54,5 +54,4 @@ export default function loader(){
   console.log("Routes successfully loaded.")
 
   return router
-
 }

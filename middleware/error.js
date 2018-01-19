@@ -12,4 +12,4 @@ const boomHandler = async (ctx, next) => {
   }
 }
 
-export default () => boomHandler;
+module.exports = () => boomHandler;

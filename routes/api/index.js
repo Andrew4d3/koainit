@@ -1,4 +1,4 @@
-import Boom from 'boom'
+const Boom = require('boom')
 
 const prefix = '/'
 const routes = [
