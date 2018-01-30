@@ -1,7 +1,7 @@
-import app from '../app'
-import supertest from 'supertest'
-import should from 'should'
-import { expect } from 'chai'
+const app = require('../app')
+const supertest = require('supertest')
+const should = require('should')
+const { expect } = require('chai')
 
 const request = supertest.agent(app.listen())
 
