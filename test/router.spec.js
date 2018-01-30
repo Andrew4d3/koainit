@@ -5,6 +5,11 @@ const { expect } = require('chai')
 
 const request = supertest.agent(app.listen())
 
+const generateToken = () => {
+  // TODO Generate Secret token using config vars over here
+  return 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MTczMjQ1MjcsImV4cCI6MTU0ODg2MDUyNywiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSJ9.Sdks3VjAdMG17x2jB9yRsorOY4XbV-rIri4PK4GuKDA'
+}
+
 describe('Test Router', function () {
 
   it('should return 200 OK with the GET method at /api', function (done) {
@@ -24,7 +29,7 @@ describe('Test Router', function () {
   it('should return 404 OK at some unknown path', function (done) {
     request
       .get('/unknown')
-      .expect(404,done)
+      .expect(404, done)
   })
 
   it('should return 200 OK with the POST method at /api', function (done) {
@@ -68,5 +73,20 @@ describe('Test Router', function () {
         expect(res.text).to.equal('<h1>Welcome Koa2 from an EJS template</h1>\r\n')
         done()
       })
+  })
+
+  it('should authenticate a signed request', function (done) {
+    request
+      .post('/jwt/endpoint')
+      .set('Authorization', generateToken())
+      .expect(200)
+      .expect('This is an authorized response', done)
+  })
+
+  it('should reject an unauthorized request', function (done) {
+    request
+      .post('/jwt/endpoint')
+      .set('Authorization', 'Bearer BadToken')
+      .expect(401, done)
   })
 })

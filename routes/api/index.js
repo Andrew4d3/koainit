@@ -1,4 +1,5 @@
 const Boom = require('boom')
+const authToken = require('../../middleware/authToken')
 
 const prefix = '/'
 const routes = [
@@ -68,6 +69,16 @@ const routes = [
       // Default Koa2 error throwing
       ctx.throw(401, "Hey")
     }
+  },
+  {
+    path: '/jwt/endpoint',
+    method: 'post',
+    controller: [
+      authToken(),
+      (ctx) => {
+        ctx.body = 'This is an authorized response'
+      }
+    ]
   }
 ]
 

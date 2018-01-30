@@ -1,3 +1,5 @@
+-- Just for development user. Delete this file
+
 [x] Router
 [x] Unit test router
 [X] Static files
@@ -10,9 +12,10 @@
 [X] Include sourceMaps (not working with undefined)
 
 2nd Phase
-[] Remove babel
-[] Token
+[x] Remove babel
+[x] Upgrade Koa
+[x] Token
 [] Logger
 [] Config loader
-[] linter
+[] Linter
 [] Update Readme
