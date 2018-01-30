@@ -15,7 +15,7 @@
 [x] Remove babel
 [x] Upgrade Koa
 [x] Token
-[] Logger
+[x] Logger
 [] Config loader
 [] Linter
 [] Update Readme

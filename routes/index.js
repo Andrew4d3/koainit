@@ -1,6 +1,7 @@
 const koa_router = require('koa-router')
 const glob = require('glob')
 const router = koa_router()
+const { logger } = require('../utilities')
 
 const mainPrefix = "" // Empty string for '/'. Suggestion: Load this from config file
 
@@ -13,28 +14,28 @@ function getRouteImports(){
   })
 }
 
-function validateRoute(route){
+function validateRoute(route) {
   let routeValid = true
   if(!route.path){
-    console.log("Warning: Route without 'path' attribute. Skipping")
+    logger.warn('Warning: Route without \'path\' attribute. Skipping...')
     routeValid = false
   }
   if(!route.method){
-    console.log("Warning: Route without 'method' attribute. Skipping")
+    logger.warn('Warning: Route without \'method\' attribute. Skipping...')
     routeValid = false
   }
   if(!route.controller){
-    console.log("Warning: Route without 'controller' attribute. Skipping")
+    logger.warn('Warning: Route without \'controller\' attribute. Skipping...')
     routeValid = false
   }
   return routeValid
 }
 
-module.exports = function loader(){
-  console.log("Loading routes...")
+module.exports = function loader() {
+  logger.info('Loading routes...')
   const files = glob.sync(__dirname + '/*/index.js', {})
-  if(!files.length){
-    console.log("There are not routes loaded. Please add your routes files in /routes folder")
+  if (!files.length) {
+    logger.error('There are not routes loaded. Please add your routes files in /routes folder')
     return router
   }
 
@@ -51,7 +52,8 @@ module.exports = function loader(){
       })
     }
   })
-  console.log("Routes successfully loaded.")
+
+  logger.info('All routes loaded!')
 
   return router
 }
