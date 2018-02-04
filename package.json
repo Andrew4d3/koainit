@@ -26,6 +26,7 @@
   "dependencies": {
     "boom": "^4.1.0",
     "co-views": "^2.1.0",
+    "config": "^1.29.2",
     "ejs": "^2.5.1",
     "glob": "^7.0.6",
     "jsonwebtoken": "^8.1.1",

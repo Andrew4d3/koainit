@@ -2,12 +2,13 @@ const app = require('../app')
 const supertest = require('supertest')
 const should = require('should')
 const { expect } = require('chai')
+const config = require('config')
+const jwt =  require('jsonwebtoken')
 
 const request = supertest.agent(app.listen())
 
 const generateToken = () => {
-  // TODO Generate Secret token using config vars over here
-  return 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1MTczMjQ1MjcsImV4cCI6MTU0ODg2MDUyNywiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSJ9.Sdks3VjAdMG17x2jB9yRsorOY4XbV-rIri4PK4GuKDA'
+  return `Bearer ${jwt.sign({ foo: 'bar' }, config.get('jwt.secret'))}`
 }
 
 describe('Test Router', function () {

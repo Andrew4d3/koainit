@@ -16,6 +16,7 @@
 [x] Upgrade Koa
 [x] Token
 [x] Logger
-[] Config loader
+[x] Config loader
+[] Env var loader
 [] Linter
 [] Update Readme
