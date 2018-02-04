@@ -4,6 +4,6 @@
     "logBody": true
   },
   "jwt": {
-    "secret": "my-little-secret"
+    "secret": "default-secret"
   }
 }

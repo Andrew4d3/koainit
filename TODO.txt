@@ -17,6 +17,6 @@
 [x] Token
 [x] Logger
 [x] Config loader
-[] Env var loader
+[x] Env var loader
 [] Linter
 [] Update Readme

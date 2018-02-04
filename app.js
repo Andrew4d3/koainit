@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Koa = require('koa')
 const staticServe = require('koa-static')
 const convert = require('koa-convert')
