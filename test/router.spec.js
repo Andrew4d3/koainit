@@ -1,6 +1,5 @@
 const app = require('../app')
 const supertest = require('supertest')
-const should = require('should')
 const { expect } = require('chai')
 const config = require('config')
 const jwt =  require('jsonwebtoken')

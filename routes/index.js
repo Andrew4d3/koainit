@@ -3,16 +3,7 @@ const glob = require('glob')
 const router = koa_router()
 const { logger } = require('../utilities')
 
-const mainPrefix = "" // Empty string for '/'. Suggestion: Load this from config file
-
-function getRouteImports(){
-  return new Promise((resolve,reject) => {
-    glob(__dirname + '/*/index.js', {}, (err, files) => {
-      if (err) reject(err)
-      resolve(files)
-    })
-  })
-}
+const mainPrefix = '' // Empty string for '/'. Suggestion: Load this from config file
 
 function validateRoute(route) {
   let routeValid = true
@@ -44,7 +35,7 @@ module.exports = function loader() {
     if(moduleFile.routes){
       moduleFile.routes.forEach((route) => {
         if(validateRoute(route)){
-          const prefix = moduleFile.prefix && moduleFile.prefix !== "/" ? moduleFile.prefix : ""
+          const prefix = moduleFile.prefix && moduleFile.prefix !== '/' ? moduleFile.prefix : ''
           const finalPath = mainPrefix + prefix + route.path
           const middleware = !Array.isArray(route.controller) ? [route.controller] : route.controller
           router[route.method.toLowerCase()](finalPath, ...middleware)

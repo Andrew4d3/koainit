@@ -12,4 +12,4 @@ const boomHandler = async (ctx, next) => {
   }
 }
 
-module.exports = () => boomHandler;
+module.exports = () => boomHandler
