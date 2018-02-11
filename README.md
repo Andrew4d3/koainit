@@ -1,40 +1,40 @@
-# My Koa2 Starter Kit
-This is a boilerplate I decided to design to have a better understanding of Koa2. It includes some useful tool, librares and midlewares that can ease the development of any Koa project. Any suggestion or feedback is welcome.
-
-### Requirements
-Be sure to have the following items installed:
-- Node v4.6.0 or greater.
-- Nodemon.
-- Mocha for unit testing.
-
-### How to use it
-- Download the last release [here](https://github.com/Andrew4d3/koainit/archive/1.0.zip).
-- Unzip the release zip file in your directory of preference.
-- Run:
-```sh
-$ sudo npm install
-```
-(Not need to type sudo if you are on windows or sudo mode)
-- Start the project by running:
-```sh
-$ npm start
-```
-or
-```sh
-$ nodemon
-```
-- Start coding and have fun!
-
-### What includes?
+# Koa Starter Kit
+This is a Koa 2 boilerplate. It includes several node utilities like:
 - [Boom](https://github.com/hapijs/boom)
 - [Koa views](https://github.com/queckezz/koa-views)
 - [EJS template engine](https://github.com/tj/ejs)
 - [Koa BodyParser](https://github.com/koajs/bodyparser)
 - [Koa Static](https://github.com/koajs/static)
 - [Koa Router](https://github.com/alexmingoia/koa-router)
+- [Koa JWT](https://github.com/koajs/jwt)
+- [Winston Logger](https://github.com/winstonjs/winston)
+- [Node Config](https://github.com/lorenwest/node-config)
+- [Dotenv](https://github.com/motdotla/dotenv)
+
+### Requirements
+- Node v8.9.4 or greater. (Correct working in previous versions is not guaranteed)
+
+### How to use it
+- Clone this repo:
+```sh
+$ git clone https://github.com/Andrew4d3/koainit.git
+$ cd koainit
+```
+- Install dependecies:
+```sh
+$ npm install
+```
+or (if you use yarn)
+```sh
+$ yarn install
+```
+- Start coding and have fun!
 
 ### License
 MIT
+
+***
+_Feel free to open an issue if you have some suggestion or feedback you want to share_
 
 
 
