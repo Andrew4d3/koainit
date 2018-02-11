@@ -1,11 +1,12 @@
 {
   "name": "koa2-init",
-  "version": "1.0.0",
-  "description": "Full koa v2 boilerplate.",
+  "version": "2.0.0",
+  "description": "Koa v2 boilerplate.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register",
-    "start": "nodemon"
+    "test": "./node_modules/.bin/mocha",
+    "start": "./node_modules/.bin/nodemon",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
@@ -14,36 +15,35 @@
   "keywords": [
     "koa",
     "koa2",
-    "babel",
     "es2015"
   ],
-  "author": "GeekPlux",
+  "author": "andrew4d3",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/geekplux/koa2-boilerplate/issues"
   },
   "homepage": "https://github.com/geekplux/koa2-boilerplate#readme",
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "babel-preset-es2015-node4": "^2.1.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-stage-3": "^6.17.0",
     "boom": "^4.1.0",
     "co-views": "^2.1.0",
+    "config": "^1.29.2",
+    "dotenv": "^5.0.0",
     "ejs": "^2.5.1",
     "glob": "^7.0.6",
-    "koa": "^2.0.0-alpha.3",
+    "jsonwebtoken": "^8.1.1",
+    "koa": "^2.4.1",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
+    "koa-jwt": "^3.3.0",
     "koa-router": "^7.0.1",
     "koa-static": "^2.0.0",
-    "koa-views": "^5.0.2"
+    "koa-views": "^5.0.2",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
-    "babel-plugin-syntax-async-functions": "^6.8.0",
-    "babel-plugin-transform-async-to-generator": "^6.8.0",
-    "babel-register": "^6.4.3",
+    "babel-eslint": "^8.2.1",
     "chai": "^3.5.0",
+    "eslint": "^4.17.0",
     "mocha": "^2.5.3",
     "nodemon": "^1.8.1",
     "should": "^8.4.0",

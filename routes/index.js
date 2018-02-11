@@ -1,40 +1,32 @@
-import koa_router from 'koa-router'
-import glob from 'glob'
+const koa_router = require('koa-router')
+const glob = require('glob')
 const router = koa_router()
+const { logger } = require('../utilities')
 
-const mainPrefix = "" // Empty string for '/'. Suggestion: Load this from config file
+const mainPrefix = '' // Empty string for '/'. Suggestion: Load this from config file
 
-function getRouteImports(){
-  return new Promise((resolve,reject) => {
-    glob(__dirname + '/*/index.js', {}, (err, files) => {
-      if (err) reject(err)
-      resolve(files)
-    })
-  })
-}
-
-function validateRoute(route){
+function validateRoute(route) {
   let routeValid = true
   if(!route.path){
-    console.log("Warning: Route without 'path' attribute. Skipping")
+    logger.warn('Warning: Route without \'path\' attribute. Skipping...')
     routeValid = false
   }
   if(!route.method){
-    console.log("Warning: Route without 'method' attribute. Skipping")
+    logger.warn('Warning: Route without \'method\' attribute. Skipping...')
     routeValid = false
   }
   if(!route.controller){
-    console.log("Warning: Route without 'controller' attribute. Skipping")
+    logger.warn('Warning: Route without \'controller\' attribute. Skipping...')
     routeValid = false
   }
   return routeValid
 }
 
-export default function loader(){
-  console.log("Loading routes...")
+module.exports = function loader() {
+  logger.info('Loading routes...')
   const files = glob.sync(__dirname + '/*/index.js', {})
-  if(!files.length){
-    console.log("There are not routes loaded. Please add your routes files in /routes folder")
+  if (!files.length) {
+    logger.error('There are not routes loaded. Please add your routes files in /routes folder')
     return router
   }
 
@@ -43,7 +35,7 @@ export default function loader(){
     if(moduleFile.routes){
       moduleFile.routes.forEach((route) => {
         if(validateRoute(route)){
-          const prefix = moduleFile.prefix && moduleFile.prefix !== "/" ? moduleFile.prefix : ""
+          const prefix = moduleFile.prefix && moduleFile.prefix !== '/' ? moduleFile.prefix : ''
           const finalPath = mainPrefix + prefix + route.path
           const middleware = !Array.isArray(route.controller) ? [route.controller] : route.controller
           router[route.method.toLowerCase()](finalPath, ...middleware)
@@ -51,8 +43,8 @@ export default function loader(){
       })
     }
   })
-  console.log("Routes successfully loaded.")
+
+  logger.info('All routes loaded!')
 
   return router
-
 }

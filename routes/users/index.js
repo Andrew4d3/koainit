@@ -1,10 +1,12 @@
+const { logger } = require('../../utilities')
+
 const prefix = '/users'
 const routes = [
   {
     path: '/route1',
     method: 'get',
     controller: (ctx) => {
-      ctx.body = "Hello from some route 1 in users"
+      ctx.body = 'Hello from some route 1 in users'
     }
   },
   {
@@ -12,11 +14,11 @@ const routes = [
     method: 'get',
     controller: [
       (ctx, next) => {
-        console.log('Running middleware in users')
+        logger.info('Running middleware in users')
         next()
       },
       (ctx) => {
-        ctx.body = "Hello from some route 2 in users"
+        ctx.body = 'Hello from some route 2 in users'
       }
     ]
   }

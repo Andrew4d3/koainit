@@ -1,3 +1,5 @@
+-- Just for development user. Delete this file
+
 [x] Router
 [x] Unit test router
 [X] Static files
@@ -10,9 +12,11 @@
 [X] Include sourceMaps (not working with undefined)
 
 2nd Phase
-[] Token
-[] Cookie Session
-[] Logger
-[] Passport Auth (Learn about Passport here)
-[] Config loader
-[] linter
+[x] Remove babel
+[x] Upgrade Koa
+[x] Token
+[x] Logger
+[x] Config loader
+[x] Env var loader
+[x] Linter
+[] Update Readme

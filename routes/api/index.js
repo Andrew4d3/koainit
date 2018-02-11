@@ -1,4 +1,5 @@
-import Boom from 'boom'
+const Boom = require('boom')
+const authToken = require('../../middleware/authToken')
 
 const prefix = '/'
 const routes = [
@@ -6,7 +7,7 @@ const routes = [
     path: '/api',
     method: 'get',
     controller: (ctx) => {
-      ctx.body = "Hello from GET /api"
+      ctx.body = 'Hello from GET /api'
     }
   },
   {
@@ -14,14 +15,14 @@ const routes = [
     method: 'get',
     controller: (ctx) => {
       const { id } = ctx.params
-      ctx.body = "Hello from GET /api with :id " + id
+      ctx.body = 'Hello from GET /api with :id ' + id
     }
   },
   {
     path: '/api',
     method: 'post',
     controller: (ctx) => {
-      ctx.body = "Hello from POST /api"
+      ctx.body = 'Hello from POST /api'
     }
   },
   {
@@ -29,7 +30,7 @@ const routes = [
     method: 'put',
     controller: (ctx) => {
       const { id } = ctx.params
-      ctx.body = "Hello from PUT /api with :id " + id
+      ctx.body = 'Hello from PUT /api with :id ' + id
     }
   },
   {
@@ -37,7 +38,7 @@ const routes = [
     method: 'del',
     controller: (ctx) => {
       const { id } = ctx.params
-      ctx.body = "Hello from DELETE /api with :id " + id
+      ctx.body = 'Hello from DELETE /api with :id ' + id
     }
   },
   {
@@ -57,8 +58,8 @@ const routes = [
   {
     path: '/throw/error',
     method: 'get',
-    controller: async (ctx) => {
-      throw Boom.unauthorized('You are not supposed to be here!');
+    controller: async () => {
+      throw Boom.unauthorized('You are not supposed to be here!')
     }
   },
   {
@@ -66,8 +67,18 @@ const routes = [
     method: 'get',
     controller: async (ctx) => {
       // Default Koa2 error throwing
-      ctx.throw(401, "Hey")
+      ctx.throw(401, 'Hey')
     }
+  },
+  {
+    path: '/jwt/endpoint',
+    method: 'post',
+    controller: [
+      authToken(),
+      (ctx) => {
+        ctx.body = 'This is an authorized response'
+      }
+    ]
   }
 ]
 

@@ -1,27 +1,33 @@
-import Koa from 'koa'
-import staticServe from 'koa-static'
-import convert from 'koa-convert'
-import bodyParser from 'koa-bodyparser'
-import views from 'koa-views'
-import loadRoutes from './routes'
-import errorMiddleware from './middleware/error'
+require('dotenv').config()
+const Koa = require('koa')
+const staticServe = require('koa-static')
+const convert = require('koa-convert')
+const bodyParser = require('koa-bodyparser')
+const views = require('koa-views')
+const config = require('config')
+const loadRoutes = require('./routes')
+const errorMiddleware = require('./middleware/error')
+const loggerMiddleware = require('./middleware/logger')
+const { logger } = require('./utilities')
+
 const app = new Koa()
 const router = loadRoutes()
 const _use = app.use
-app.use = x => _use.call(app, convert(x))
 
+app.use = (x) => _use.call(app, convert(x))
 app.use(staticServe('./public'))
 app.use(bodyParser())
 app.use(views(`${__dirname}/views`, {
   map: { ejs: 'ejs' }
-} ))
+}))
 
+app.use(loggerMiddleware())
 app.use(errorMiddleware())
 
 app
   .use(router.routes())
   .use(router.allowedMethods())
 
-app.listen(3000, () => console.log('server started 3000'))
+app.listen(config.get('port'), () => logger.info('Server started at port 3000'))
 
-export default app
+module.exports = app

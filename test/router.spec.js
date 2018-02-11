@@ -1,9 +1,14 @@
-import app from '../app'
-import supertest from 'supertest'
-import should from 'should'
-import { expect } from 'chai'
+const app = require('../app')
+const supertest = require('supertest')
+const { expect } = require('chai')
+const config = require('config')
+const jwt =  require('jsonwebtoken')
 
 const request = supertest.agent(app.listen())
+
+const generateToken = () => {
+  return `Bearer ${jwt.sign({ foo: 'bar' }, config.get('jwt.secret'))}`
+}
 
 describe('Test Router', function () {
 
@@ -24,7 +29,7 @@ describe('Test Router', function () {
   it('should return 404 OK at some unknown path', function (done) {
     request
       .get('/unknown')
-      .expect(404,done)
+      .expect(404, done)
   })
 
   it('should return 200 OK with the POST method at /api', function (done) {
@@ -68,5 +73,20 @@ describe('Test Router', function () {
         expect(res.text).to.equal('<h1>Welcome Koa2 from an EJS template</h1>\r\n')
         done()
       })
+  })
+
+  it('should authenticate a signed request', function (done) {
+    request
+      .post('/jwt/endpoint')
+      .set('Authorization', generateToken())
+      .expect(200)
+      .expect('This is an authorized response', done)
+  })
+
+  it('should reject an unauthorized request', function (done) {
+    request
+      .post('/jwt/endpoint')
+      .set('Authorization', 'Bearer BadToken')
+      .expect(401, done)
   })
 })
