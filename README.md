@@ -28,6 +28,14 @@ or (if you use yarn)
 ```sh
 $ yarn install
 ```
+- Run project with:
+```sh
+$ npm start
+```
+- Run tests with:
+```sh
+$ npm run test
+```
 - Start coding and have fun!
 
 ### License
